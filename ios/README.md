@@ -1,7 +1,7 @@
 # Diamond 26 for iPhone
 
-This is a small iPhone app that shows the game from `../index.html` full screen. All the gameplay is in that
-HTML file, so if you change the game there, the app picks up the change the next time you build.
+This is a small iPhone app that shows the game (`../index.html` plus the `css` and `js` folders) full screen. All the gameplay is in those
+files, so if you change the game there, the app picks up the change the next time you build.
 
 The app adds a few things the browser version doesn't have:
 
@@ -26,16 +26,22 @@ The app adds a few things the browser version doesn't have:
    - Click Next, pick this repo's `ios` folder as the location, and click Create.
 4. In the left sidebar, delete the two files Xcode made: `ContentView.swift` and `Diamond26App.swift`
    (choose **Move to Trash**).
-5. Drag these files from Finder into the `Diamond26` folder in Xcode's left sidebar:
+5. Drag the two Swift files from `ios/Sources/` into the `Diamond26` folder in Xcode's left sidebar:
    - `ios/Sources/Diamond26App.swift`
    - `ios/Sources/GameView.swift`
-   - `index.html` (from the top of the repo)
 
-   In the dialog that pops up, **uncheck "Copy items if needed"** (so the app always uses the real files)
-   and make sure the **Diamond26** target is checked.
-6. Click the blue **Diamond26** project at the top of the sidebar → **General** tab → **Deployment Info**:
+   In the dialog that pops up, **uncheck "Copy items if needed"** and make sure the **Diamond26** target is checked.
+6. Now drag the game itself in the same way: `index.html`, the `css` folder and the `js` folder (all from the
+   top of the repo). In the dialog:
+   - Don't copy the files: uncheck **"Copy items if needed"**, or in newer Xcode set **Action** to
+     **"Reference files in place"**. That way the app always uses the real files.
+   - Keep the folders as real folders: choose **"Create folder references"**, or in newer Xcode set
+     **Groups** to **"Create folders"**. The `css` and `js` folders should show up **blue** in the sidebar,
+     not yellow. This matters: `index.html` looks for `css/style.css` and `js/...` inside the app.
+   - Make sure the **Diamond26** target is checked.
+7. Click the blue **Diamond26** project at the top of the sidebar → **General** tab → **Deployment Info**:
    check **iPhone** only and **Portrait** only.
-7. Choose an iPhone simulator at the top of the window and press **⌘R** to run.
+8. Choose an iPhone simulator at the top of the window and press **⌘R** to run.
 
 ### Running on your own iPhone
 
